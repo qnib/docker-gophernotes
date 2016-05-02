@@ -17,4 +17,5 @@ RUN go get golang.org/x/tools/cmd/goimports \
  && cp -r $GOPATH/src/github.com/gophergala2016/gophernotes/kernel/* ~/.ipython/kernels/gophernotes
 
 EXPOSE 8888
-CMD ["jupyter", "notebook", "--no-browser", "--ip=0.0.0.0"]
+ADD etc/supervisord.d/gophernotes.ini /etc/supervisord.d/
+ADD opt/qnib/gophernotes/bin/start.sh /opt/qnib/gophernotes/bin/
